@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-06-09T16:46:29Z</date>
+    <date>2021-06-10T14:39:10Z</date>
     <groups>
         <group>
             <name>Linux servers</name>
@@ -25,8 +25,19 @@
                 <item>
                     <name>Plots</name>
                     <key>chia.plots</key>
-                    <delay>10s</delay>
+                    <delay>600s</delay>
                     <value_type>FLOAT</value_type>
+                    <applications>
+                        <application>
+                            <name>ChiaPlots</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Total plots</name>
+                    <type>AGGREGATE</type>
+                    <key>grpsum[&quot;Chia&quot;,&quot;chia.plots&quot;, &quot;last&quot;]</key>
+                    <delay>600m</delay>
                     <applications>
                         <application>
                             <name>ChiaPlots</name>
@@ -38,7 +49,7 @@
     </templates>
     <graphs>
         <graph>
-            <name>Plot Count</name>
+            <name>Chia plots</name>
             <graph_items>
                 <graph_item>
                     <sortorder>1</sortorder>
@@ -47,6 +58,14 @@
                     <item>
                         <host>Template Chia</host>
                         <key>chia.plots</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>0040FF</color>
+                    <item>
+                        <host>Template Chia</host>
+                        <key>grpsum[&quot;Chia&quot;,&quot;chia.plots&quot;, &quot;last&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>

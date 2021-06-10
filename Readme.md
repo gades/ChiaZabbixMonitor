@@ -11,11 +11,13 @@ This is a very basic template for Zabbix to monitor chia plots of harvester mach
 4. Add zabbix to sudo users, please add this line into /etc/sudoers `zabbix	ALL=(ALL:ALL) NOPASSWD:ALL`
 5. Change username and path to your virt env in chia.conf
 6. Restart zabbix-agent using `sudo systemctl restart zabbix-agent`.
+7. Goto Configuration -> Host group -> Create new host group - "Chia"
+8. Add all your host to Chia host group
 
 ### Configure Zabbix web-panel
 1. In Configuration>Templates click on Import.
 2. Choose Template chia.xml and click on Import.
-3. Check whether temperature data is sent to Zabbix web-panel in Monitoring>Latest Data.
+3. Check whether chia data is sent to Zabbix web-panel in Monitoring>Latest Data.
 4. Create Screens and monitor your servers!
 
 ## Donate
